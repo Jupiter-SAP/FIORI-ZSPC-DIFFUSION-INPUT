@@ -1,0 +1,622 @@
+<mvc:View
+    xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:fo="sap.f"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:t="sap.ui.table"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    controllerName="project4.controller.View1"
+    height="100%"
+>
+    <m:Page
+        id="_IDGenPage2"
+        title="SPC Diffusion FAT"
+        >
+    	
+             <m:content>
+                <f:SimpleForm
+                    id="_IDGenSimpleForm"
+                    editable="true"
+                >
+                    <f:content>
+                        <m:VBox id="_IDGenVBox2">
+ 
+                            <m:HBox
+                                id="_IDGenHBox212"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDEntrytype2"
+                                    text="Date :"
+                                    width="180px"
+                                    required="true"
+                                />
+                                 <m:DatePicker
+                                    id="DP2"
+                                    width="200px"
+                                    valueFormat="yyyy-MM-ddTHH:mm:ss"
+                                    displayFormat="MMM dd, yyyy"
+                                    value="{/Entrydate}"
+                                />
+                                
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenBox2"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDEntrytypel"
+                                    text="Plant"
+                                    required="true"
+                                    width="180px"
+                                />
+ 
+                                <m:ComboBox
+                                    id="_IDGenSelect3"
+                                    showSecondaryValues="true"
+                                    width="200px"
+                                    change="onGateEntryTypeChange"
+                                    value="{/Entrytype}"
+                                    required="true"
+                                    items="{
+                                        path: 'GateEntry>/GateEntryType',
+                                        sorter: { path: 'Value' }
+                                    }"
+                                >
+                                    <core:ListItem
+                                        id="_IDGenListItem1"
+                                        text="{GateEntry>Value}"
+                                        additionalText="{GateEntry>Description}"
+                                    />
+                                </m:ComboBox>
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox3"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDEntrydate"
+                                    text="Wafer Supplier Batch"
+                                    width="180px"
+                                    required="true"
+                                />
+                               
+                                 <m:ComboBox
+                                    id="_IDGenSelect9"
+                                    showSecondaryValues="true"
+                                    width="200px"
+                                    change="onEntryTypeChange"
+                                    value="{/Gateoutward}"
+                                    required="true"
+                                    items="{
+                                        path: '/GateEntryType',
+                                        sorter: { path: 'Description' }
+                                    }"
+                                >
+                                    <core:ListItem
+                                        id="_IDGenListItem3"
+                                        text="{Value}"
+                                        additionalText="{Description}"
+                                    />
+ 
+                                </m:ComboBox>
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox12"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDPlant"
+                                    text="POCI3"
+                                    width="180px"
+                                    required="true"
+                                />
+                                <m:ComboBox
+                                    id="_IDGenInput6"
+                                    showSecondaryValues="true"
+                                    width="200px"
+                                    change="onplantChange"
+                                    value="{/Plant}"
+                                    required="true"
+                                    items="{
+                                        path: '/Plant',
+                                        sorter: { path: 'Plant' }
+                                    }"
+                                >
+                                    <core:ListItem
+                                        id="_IDGenItem"
+                                        text="{Plant}"
+                                        additionalText="{PlantName}"
+                                    />
+                                </m:ComboBox>
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox5"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDOperatorname1"
+                                    text="tube master"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Operatorname1"
+                                    liveChange="onLiveChange"
+                                    width="200px"
+                                    value="{/Operatorname}"
+                                />
+                            </m:HBox>
+                             <m:HBox
+                                id="Gateentryno11"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="Gateentryno23"
+                                    text="Run Number"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Gateentryno2"
+                                    width="200px"
+                                    liveChange="onLiveChange"
+                                    value="{/Gateentryno}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox13"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDTransportmode"
+                                    text="Deposition 1(mg/min)"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Transportmode"
+                                    width="200px"
+                                    placeholder="Enter Name"
+                                    liveChange="onLiveChange"
+                                    value="{/Transportmode}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox8"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGrdate"
+                                    text="Employee Code"
+                                    width="180px"
+                                />
+                                 <m:Input
+                                    id="Grno1"
+                                    width="200px"
+                                    liveChange="onLiveChange"
+                                    value="{/Grno}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox9"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGrno"
+                                    text="Process Control Limit"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Grno"
+                                    width="200px"
+                                    liveChange="onLiveChange"
+                                    value="{/Grno}"
+                                />
+                            </m:HBox>
+                        </m:VBox>
+ 
+                        <m:VBox id="_IDGenVBox3">
+                            <m:HBox
+                                id="_IDGenHBox4"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDVehiclenoe"
+                                    text="Time"
+                                    width="180px"
+                                    required="true"
+                                />
+                                 <m:TimePicker
+                                    id="TP"
+                                    width="200px"
+                                    value="{/Gateintime}"
+                                    displayFormat='HH:mm'
+                                    valueFormat="PTHH'H'mm'M'ss'S'"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox6"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGateindate"
+                                    text="Work Center"
+                                    width="180px"
+                                />
+                                 <m:Input
+                                    id="Vehiclo"
+                                    value="{/Vehicleno}"
+                                    width="200px"
+                                />
+                                
+                               
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox7"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGateintime"
+                                    text="Wafer Supplier"
+                                    width="180px"
+                                />
+                                 <m:Input
+                                    id="Vehclo"
+                                    value="{/Vehicleno}"
+                                    width="200px"
+                                />
+                               
+                            </m:HBox>
+ 
+                            <m:HBox
+                                id="_IDGenHBox16"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDTransportername"
+                                    text="O2Supplier"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Transportername"
+                                    width="200px"
+                                    liveChange="onLiveChange"
+                                    value="{/Transportername}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox14"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDDrivername"
+                                    text="Tube Description"
+                                    width="180px"
+                                    required="true"
+                                />
+                                <m:Input
+                                    id="Drivername"
+                                    placeholder="Enter Name"
+                                    liveChange="onLiveChange"
+                                    width="200px"
+                                    value="{/Drivername}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox15"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDDriverlicenseno"
+                                    text="Recipe Name"
+                                    width="180px"
+                                />
+ 
+                               
+                                <m:Input
+                                    id="Driverlicenseno"
+                                    width="200px"
+                                    placeholder="Enter DL Number (e.g., MH1220121234567)"
+                                    liveChange="onLiveChangeDL"
+                                    change="onChangeDL"
+                                    value="{/Driverlicenseno}"
+                                    maxLength="15"
+                                />
+                            </m:HBox>
+ 
+                            <m:HBox
+                                id="_IDGenHBox19"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDDriverno"
+                                    text="Deposition 2(mg/min)"
+                                    width="180px"
+                                    required="true"
+                                />
+                                <m:Input
+                                    id="Driverno"
+                                    width="200px"
+                                    placeholder="Enter mobile no."
+                                    liveChange="onchangenumber"
+                                    maxLength="10"
+                                    value="{/Driverno}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGeBox16"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDTransrtername"
+                                    text="Employee Name"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Transporrname"
+                                    width="200px"
+                                    liveChange="onLiveChange"
+                                    value="{/Transportername}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHox16"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDTnsportername"
+                                    text="LCL"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Transporterne"
+                                    width="200px"
+                                    liveChange="onLiveChange"
+                                    value="{/LCL}"
+                                />
+                            </m:HBox>
+
+                        </m:VBox>
+ 
+                        <m:VBox id="_IDGenVBox4">
+                            <m:HBox
+                                id="_IDGenHBox21"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGenLabel26"
+                                    text="Shift"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="_IDGenInput14"
+                                    placeholder="Select Invoices"
+                                    showValueHelp="true"
+                                    liveChange="onLiveChange"
+                                    valueHelpRequest="openDialog"
+                                    value="{/Invoiceno}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox11"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDRemarks"
+                                    text="Work Center Description"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Remarks"
+                                    width="200px"
+                                    value="{/Remarks}"
+                                />
+                            </m:HBox>
+                            <m:HBox id="_IDGenHBox2" >
+                            <m:Label
+                                    id="_IDRemas"
+                                    width="180px"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox10"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDSlipno"
+                                    text="Track Card ID"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="Slipno"
+                                    liveChange="onLiveChange"
+                                    width="200px"
+                                    value="{/Slipno}"
+                                />
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGenLabel4"
+                                    text="Description"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="_IDGenInput8"
+                                    liveChange="onLiveChange"
+                                    width="200px"
+                                    value="{/Grosswt}"
+                                />
+                            </m:HBox>
+                            <m:HBox id="he">
+                                <m:Label id="hee"
+                                width="200px"
+                                >
+                                </m:Label>
+                            </m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox1"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGenLabel5"
+                                    text="Desposition 3(mg/min)"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="_IDGenInput9"
+                                    liveChange="onLiveChange"
+                                    width="200px"
+                                    value="{/Tarewt}"
+                                />
+                            </m:HBox>
+                            <m:HBox id="hel">
+                            <m:Label id="hell">
+                            </m:Label>
+                            </m:HBox>
+                            <m:HBox id="_IDGenHBox17" height="30px"></m:HBox>
+                            <m:HBox
+                                id="_IDGenHBox20"
+                                alignItems="Center"
+                            >
+                                <m:Label
+                                    id="_IDGenLabel9"
+                                    text="UCL"
+                                    width="180px"
+                                />
+                                <m:Input
+                                    id="_IDGenInput10"
+                                    liveChange="onLiveChange"
+                                    width="200px"
+                                    value="{/UCL}"
+                                />
+                            </m:HBox>
+                        </m:VBox>
+                    </f:content>
+                </f:SimpleForm>
+            </m:content>
+        
+
+        
+        <fo:DynamicPage id="dynamicPageBillingEntry" fitContent="true">
+            <fo:content>
+                <t:Table id="TableDetails" rows="{/Table}" rowMode="Auto">
+                <t:extension>
+                        <m:OverflowToolbar
+                            id="OverflowToolbarNewId2"
+                            style="Clear"
+                        >
+                            <m:Title
+                                id="TitleNewId2"
+                                text=" Lines"
+                            />
+                            <m:ToolbarSpacer id="ToolbarSpacerNewId2" />
+
+                            <m:Button
+                                id="ButtonaddNewId2"
+                                icon="sap-icon://add"
+                                press="addLine"
+                            />
+                            <m:Button
+                                id="ButtonDeleteNewId2"
+                                icon="sap-icon://delete"
+                                press="deleteLine"
+                            />
+                        </m:OverflowToolbar>
+                    </t:extension>
+                    <t:columns>
+                        <t:Column id="ColumnBillingDocument" width="11rem">
+                            <m:Label id="LabelBillingDocument" text="Zone" />
+                            <t:template>
+                                <m:Input id="InputBillingDocument"  value="{Zone}"  />
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="ColumnPlant13" width="11rem">
+                            <m:Label id="LabelPlant45" text="Rsh MP1" />
+                            <t:template>
+                                <m:Input id="InputPlant23" change="triggerValue" type="Number" value="{MP1}"/>
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="ColumnProduct" width="11rem">
+                            <m:Label id="LabelProduct" text="Rsh MP2" />
+                            <t:template>
+                                <m:Input id="Inputhsn" change="triggerValue" type="Number" value="{MP2}"  />
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="CODE" width="11rem">
+                            <m:Label id="LABELCODE" text="Rsh MP3" />
+                            <t:template>
+                                <m:Input id="DescriptionDepart" change="triggerValue" value="{MP3}"  />
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="COE" width="11rem">
+                            <m:Label id="LABELDE" text="Rsh MP4" />
+                            <t:template>
+                                <m:Input id="DescriionDepart" change="triggerValue" value="{MP4}"  />
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="CDE" width="11rem">
+                            <m:Label id="LELCODE" text="Rsh MP5" />
+                            <t:template>
+                                <m:Input id="DescriptnDepart" change="triggerValue" value="{MP5}"  />
+                            </t:template>
+                        </t:Column>
+
+
+                        <t:Column id="dE" width="11rem">
+                            <m:Label id="LALCOE" text="Point to Point Uniformity" />
+                            <t:template>
+                                <m:Input id="Descriptiont" value="{ppu}"  />
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="eeE" width="11rem">
+                            <m:Label id="LALODE" text="Exhause Value" />
+                            <t:template>
+                                <m:Input id="DescptionDart" value="{Department}"  />
+                            </t:template>
+                        </t:Column>
+
+                        <t:Column id="dfE" width="11rem">
+                            <m:Label id="LCODE" text="Bubbler Level %" />
+                            <t:template>
+                                <m:Input id="DescriionDart" value="{Department}"  />
+                            </t:template>
+                        </t:Column>
+
+                          <t:Column id="df" width="11rem">
+                            <m:Label id="ODE" text="Standard Remarks Code" />
+                            <t:template>
+                                <m:Input id="DescriiDart" value="{Department}"  />
+                            </t:template>
+                        </t:Column>
+
+                          <t:Column id="d" width="11rem">
+                            <m:Label id="LCDE" text="Standard Remarks Description" />
+                            <t:template>
+                                <m:Input id="DescrnDart" value="{SRD}"  />
+                            </t:template>
+                        </t:Column>
+
+                    </t:columns>
+                </t:Table>
+            </fo:content>
+        </fo:DynamicPage>
+                
+    </m:Page>
+</mvc:View>
+
+
+
