@@ -11,8 +11,8 @@ export default class View1 extends Controller {
 
     
     public Lines =[
-        { "Zone": "Z1" },
-        { "Zone": "Z2" },
+        { "Zone": "Z1", "Direction": "LEFT" , "Trackid":"T01" },
+        { "Zone": "Z2", "Direction": "RIGHT", "Trackid": "T02" },
     ]
     /*eslint-disable @typescript-eslint/no-empty-function*/
     public onInit(): void {
@@ -42,15 +42,13 @@ export default class View1 extends Controller {
         let val =  oEvent.getSource().getValue()
         let path = oEvent.getSource().getParent().getBindingContext().sPath
         let index =  oEvent.getSource().getParent().getIndex();
-        let names =  oEvent.getSource().getParent().getBindingContext().getObject();
-        console.log(names)
         if (!(index in this.dictVal)){
             this.dictVal[index] = 0;
         }
         if (val >=lcl && val<= ucl){
             this.dictVal[index] +=1
             let Calculation = (this.dictVal[index]/5)*100
-            oEvent.getSource().getParent().getBindingContext().setObject()
+            // oEvent.getSource().getParent().getBindingContext().getObject()
             this.line.setProperty(path,{...oEvent.getSource().getBindingContext().getObject(),"ppu":Calculation})
          
         }

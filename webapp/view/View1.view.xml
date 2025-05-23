@@ -538,6 +538,19 @@
                                 <m:Input id="InputBillingDocument"  value="{Zone}"  />
                             </t:template>
                         </t:Column>
+                        
+                           <t:Column id="ngDocument" width="11rem">
+                            <m:Label id="illingDocument" text="Direction" />
+                            <t:template>
+                                <m:Input id="llingDocument"  value="{Direction}"  />
+                            </t:template>
+                        </t:Column>
+                        <t:Column id="Plant13" width="11rem">
+                            <m:Label id="Plant45" text="Track ID" />
+                            <t:template>
+                                <m:Input id="Plant23" change="triggerValue" value="{Trackid}"/>
+                            </t:template>
+                        </t:Column>
 
                         <t:Column id="ColumnPlant13" width="11rem">
                             <m:Label id="LabelPlant45" text="Rsh MP1" />
